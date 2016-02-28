@@ -1,20 +1,20 @@
 /*
-1400015962 ¹â»ª¹ÜÀíÑ§Ôº ºúË³ê¿£¨Ë«Ñ§Î»£©
-cpp×÷Òµ1£º·ÖÊıÀà£¨UpDown£©Óësortº¯Êı
-1.ÎŞ/µ¥/Ë«²Î¹¹Ôìº¯Êı£¨¼òµ¥µÄÑ­»·Ğ¡Êı±ä·ÖÊı£©¼°operator=£ºmyUD = 3.14
-2.×Ô¶¯Ô¼·Ö
-3.UpDown¼ä¼°ÓëÆäËûÊı¾İÀàĞÍ¼äµÄ³£ÓÃÔËËã£¨+ - * / == != > < >= <= ++ -- [] += -= *= /=£©
-4.UpDownÓëdouble/int/boolÖ®¼äµÄÀàĞÍ×ª»»
-5.Setter/Getter/Printº¯Êı¡¢cout<<UpDown()
-6.ÅÅĞòº¯Êı£ºvoid sort(T arr, int n, bool order = false), ÆäÖĞarrÎªÊı×éÃû(µØÖ·)£¬nÎªÊı×é³ÉÔ±¸öÊı£¬orderÎªÅÅĞòË³Ğò£¨ÎªTRUE±íÊ¾½µĞò£¬Ä¬ÈÏÉıĞò£©
-#µ÷ÊÔ»·¾³£ºMicrosoft Visual Studio 2015
+by S-Hu
+cppä½œä¸š1ï¼šåˆ†æ•°ç±»ï¼ˆUpDownï¼‰ä¸sortå‡½æ•°
+1.æ— /å•/åŒå‚æ„é€ å‡½æ•°ï¼ˆç®€å•çš„å¾ªç¯å°æ•°å˜åˆ†æ•°ï¼‰åŠoperator=ï¼šmyUD = 3.14
+2.è‡ªåŠ¨çº¦åˆ†
+3.UpDowné—´åŠä¸å…¶ä»–æ•°æ®ç±»å‹é—´çš„å¸¸ç”¨è¿ç®—ï¼ˆ+ - * / == != > < >= <= ++ -- [] += -= *= /=ï¼‰
+4.UpDownä¸double/int/boolä¹‹é—´çš„ç±»å‹è½¬æ¢
+5.Setter/Getter/Printå‡½æ•°ã€cout<<UpDown()
+6.æ’åºå‡½æ•°ï¼švoid sort(T arr, int n, bool order = false), å…¶ä¸­arrä¸ºæ•°ç»„å(åœ°å€)ï¼Œnä¸ºæ•°ç»„æˆå‘˜ä¸ªæ•°ï¼Œorderä¸ºæ’åºé¡ºåºï¼ˆä¸ºTRUEè¡¨ç¤ºé™åºï¼Œé»˜è®¤å‡åºï¼‰
+#è°ƒè¯•ç¯å¢ƒï¼šMicrosoft Visual Studio 2015
 */
 
 #include<iostream>
 using namespace std;
 
-//Ñ¡ÔñÅÅĞò
-//void sort(T arr, int n, bool order = false), ÆäÖĞarrÎªÊı×éÃû(µØÖ·)£¬nÎªÊı×é³ÉÔ±¸öÊı£¬orderÎªÅÅĞòË³Ğò£¨ÎªTRUE±íÊ¾½µĞò£¬Ä¬ÈÏÉıĞò£©
+//é€‰æ‹©æ’åº
+//void sort(T arr, int n, bool order = false), å…¶ä¸­arrä¸ºæ•°ç»„å(åœ°å€)ï¼Œnä¸ºæ•°ç»„æˆå‘˜ä¸ªæ•°ï¼Œorderä¸ºæ’åºé¡ºåºï¼ˆä¸ºTRUEè¡¨ç¤ºé™åºï¼Œé»˜è®¤å‡åºï¼‰
 template<class T>
 void sort(T *arr, unsigned int n, bool order = false) {
 	for (unsigned int iLoop = 0; iLoop < n; iLoop++) {
@@ -28,46 +28,46 @@ void sort(T *arr, unsigned int n, bool order = false) {
 	}
 }
 
-//·ÖÊıÀà
+//åˆ†æ•°ç±»
 class UpDown {
 private:
 	int Up, Down;
 
-	//È¡×î´ó¹«Ô¼Êı
+	//å–æœ€å¤§å…¬çº¦æ•°
 	int GCD(int a, int b) {
 		if (a >= b) return a%b == 0 ? b : GCD(b, a%b);
 		else return b%a == 0 ? a : GCD(a, b%a);
 	}
-	//±ê×¼»¯£¬»¯Îª·ûºÅÔÚ·Ö×ÓµÄ¼ÈÔ¼¼Ù·ÖÊı
-	//ÔÚ¹¹Ôìº¯Êı¡¢¸³Öµº¯Êı¡¢×Ô¼Ó×Ô¼õº¯ÊıÖĞÖ´ĞĞ£¬È·±£ËùÓĞ¶ÔÏó¶¼ÊÇ±ê×¼»¯µÄ
+	//æ ‡å‡†åŒ–ï¼ŒåŒ–ä¸ºç¬¦å·åœ¨åˆ†å­çš„æ—¢çº¦å‡åˆ†æ•°
+	//åœ¨æ„é€ å‡½æ•°ã€èµ‹å€¼å‡½æ•°ã€è‡ªåŠ è‡ªå‡å‡½æ•°ä¸­æ‰§è¡Œï¼Œç¡®ä¿æ‰€æœ‰å¯¹è±¡éƒ½æ˜¯æ ‡å‡†åŒ–çš„
 	void Standardize() {
-		if (0 == Up) { Down = 1; return; }//´¦Àí0
+		if (0 == Up) { Down = 1; return; }//å¤„ç†0
 
-										  //´¦Àí·ûºÅ£¬Ê¹¸ººÅÔÚ·Ö×Ó
+										  //å¤„ç†ç¬¦å·ï¼Œä½¿è´Ÿå·åœ¨åˆ†å­
 		if ((Up > 0 && Down < 0) || (Up < 0 && Down > 0)) { Up = Up < 0 ? Up : -Up; }
 		else { Up = Up > 0 ? Up : -Up; }
 		Down = Down > 0 ? Down : -Down;
 
-		//Ô¼·Ö
+		//çº¦åˆ†
 		int gcd = GCD(Up > 0 ? Up : -Up, Down);
 		Up = Up / gcd;
 		Down = Down / gcd;
 	}
 public:
-	//ÎŞ/µ¥²Î¹¹Ôìº¯Êı
-	//Ñ­»·Ğ¡Êı±ä·ÖÊı£¨Ğ¡Êıµãºó16Î»Ñ­»·ÔòÈÏÎªÊÇÑ­»·Ğ¡Êı£©
+	//æ— /å•å‚æ„é€ å‡½æ•°
+	//å¾ªç¯å°æ•°å˜åˆ†æ•°ï¼ˆå°æ•°ç‚¹å16ä½å¾ªç¯åˆ™è®¤ä¸ºæ˜¯å¾ªç¯å°æ•°ï¼‰
 	UpDown(double u = 0) {
-		//È¡ÎªÊı×é
+		//å–ä¸ºæ•°ç»„
 		bool negative = u < 0 ? 1 : 0;
 		double uAbs = u < 0 ? -u : u;
-		int nums[17];//nums[0]ÎªÕûÊı²¿·Ö,nums[1~16]ÎªĞ¡Êıµãºó16Î»
+		int nums[17];//nums[0]ä¸ºæ•´æ•°éƒ¨åˆ†,nums[1~16]ä¸ºå°æ•°ç‚¹å16ä½
 		for (int i = 0; i <= 16; i++) {
 			nums[i] = int(uAbs);
 			uAbs = (uAbs - int(uAbs)) * 10;
 		}
-		//Ñ°ÕÒÑ­»·½Ú
-		bool isCirculator = 0;//ÕÒµ½Ñ­»·½ÚÔòÖÃ1
-		int length, startLocation;//Ñ­»·½Ú³¤¶È¡¢¿ªÊ¼Ñ­»·µÄÎ»ÖÃ
+		//å¯»æ‰¾å¾ªç¯èŠ‚
+		bool isCirculator = 0;//æ‰¾åˆ°å¾ªç¯èŠ‚åˆ™ç½®1
+		int length, startLocation;//å¾ªç¯èŠ‚é•¿åº¦ã€å¼€å§‹å¾ªç¯çš„ä½ç½®
 		for (length = 1; length <= 8; length++) {
 			for (startLocation = 1; startLocation <= 18 - 2 * length; startLocation++) {
 				isCirculator = 1;
@@ -80,37 +80,37 @@ public:
 			}
 			if (isCirculator) { break; }
 		}
-		//¸³Öµ
-		if (isCirculator) { //ÕÒµ½Ñ­»·½Ú
+		//èµ‹å€¼
+		if (isCirculator) { //æ‰¾åˆ°å¾ªç¯èŠ‚
 			Up = 0; Down = 0;
-			//Ñ­»·½Ú²¿·Ö
+			//å¾ªç¯èŠ‚éƒ¨åˆ†
 			for (int iLoop = 0; iLoop <= length - 1; iLoop++) {
 				Up = Up * 10 + nums[startLocation + iLoop];
 				Down = Down * 10 + 9;
 			}
-			//·ÇÑ­»·½Ú²¿·Ö
+			//éå¾ªç¯èŠ‚éƒ¨åˆ†
 			for (int iLoop = 1; iLoop < startLocation; iLoop++) {
 				Up += int(double(nums[startLocation - iLoop])*Down);
 				Down *= 10;
 			}
-			Up += nums[0] * Down;//ÕûÊı²¿·Ö
-			Up *= negative ? -1 : 1;//·ûºÅ
+			Up += nums[0] * Down;//æ•´æ•°éƒ¨åˆ†
+			Up *= negative ? -1 : 1;//ç¬¦å·
 		}
-		else { //Î´ÕÒµ½Ñ­»·½Ú
+		else { //æœªæ‰¾åˆ°å¾ªç¯èŠ‚
 			for (Down = 1; u != double(int(u)) && u < 1e8 && Down < 1e8; Down *= 10) { u *= 10; }
 			Up = int(u);
 		}
 		Standardize();
 	}
 
-	//Ë«²Î¹¹Ôìº¯Êı
+	//åŒå‚æ„é€ å‡½æ•°
 	UpDown(double u, double d) {
-		//cout << "UpDown¹¹Ôìº¯Êı±»µ÷ÓÃ¡£" << endl;
+		//cout << "UpDownæ„é€ å‡½æ•°è¢«è°ƒç”¨ã€‚" << endl;
 		if (d != 0) {
 			if (1 == d) { *this = UpDown(u); }
 			else {
-				//·Ö×Ó·ÖÄ¸È¥Ğ¡Êıµã
-				//·ÀÖ¹Òç³ö
+				//åˆ†å­åˆ†æ¯å»å°æ•°ç‚¹
+				//é˜²æ­¢æº¢å‡º
 				for (; ((u != double(int(u))) || (d != double(int(d)))) && u < 1e8 && d < 1e8;) {
 					u *= 10; d *= 10;
 				}
@@ -124,7 +124,7 @@ public:
 		}
 	}
 
-	//ÖØÔØ¸³ÖµÔËËã·û£¬¿ÉÒÔmyUD = 3.14;
+	//é‡è½½èµ‹å€¼è¿ç®—ç¬¦ï¼Œå¯ä»¥myUD = 3.14;
 	UpDown &operator=(double u) {
 		*this = UpDown(u);
 		return *this;
@@ -133,23 +133,23 @@ public:
 	/*
 	UpDown(UpDown& it){
 	Up = it.getUp(); Down = it.getDown();
-	cout << "UpDown¿½±´¹¹Ôìº¯Êı±»µ÷ÓÃ¡£" << endl; }
-	~UpDown(){ cout << "UpDownÎö¹¹º¯Êı±»µ÷ÓÃ¡£" << endl; }
+	cout << "UpDownæ‹·è´æ„é€ å‡½æ•°è¢«è°ƒç”¨ã€‚" << endl; }
+	~UpDown(){ cout << "UpDownææ„å‡½æ•°è¢«è°ƒç”¨ã€‚" << endl; }
 	*/
 
 	//void Print(){ cout << Up << '/' << Down; }
 	UpDown &Print() { cout << Up << '/' << Down; return *this; }
 
-	//ÖØÔØ<<ÔËËã·û£¬¿ÉÒÔcout << UpDown();
+	//é‡è½½<<è¿ç®—ç¬¦ï¼Œå¯ä»¥cout << UpDown();
 	friend ostream &operator<<(ostream &os, UpDown &it) {
 		os << it.Up << '/' << it.Down;
 		return os;
 	}
 
-	//setter¡¢getterº¯Êı
-	//¶Ô¸³Öµ½øĞĞºÏ·¨ĞÔ¼ì²é
-	//×Ô¶¯Ô¼·Ö
-	//µ¥¶À¸ü¸Ä·Ö×Ó·ÖÄ¸ÓÃsetUp/setDown£¬ÖØĞÂ¸³ÖµÓÃsetVal
+	//setterã€getterå‡½æ•°
+	//å¯¹èµ‹å€¼è¿›è¡Œåˆæ³•æ€§æ£€æŸ¥
+	//è‡ªåŠ¨çº¦åˆ†
+	//å•ç‹¬æ›´æ”¹åˆ†å­åˆ†æ¯ç”¨setUp/setDownï¼Œé‡æ–°èµ‹å€¼ç”¨setVal
 	UpDown &setUp(int u) { Up = u; Standardize(); return *this; }
 	UpDown &setDown(int d) {
 		if (d != 0) { Down = d; Standardize(); }
@@ -161,22 +161,22 @@ public:
 	int getUp() const { return Up; }
 	int getDown() const { return Down; }
 
-	//·½À¨ºÅÔËËã·û£¬[Å¼Êı]È¡·Ö×Ó£¬[ÆæÊı]È¡·ÖÄ¸
+	//æ–¹æ‹¬å·è¿ç®—ç¬¦ï¼Œ[å¶æ•°]å–åˆ†å­ï¼Œ[å¥‡æ•°]å–åˆ†æ¯
 	int operator[](int index) const {
 		if (0 == index % 2) { return Up; }
 		else { return Down; }
 	}
 
-	explicit operator double() const { return double(Up) / Down; }//ÖØÔØdoubleÀàĞÍ×ª»»£¬explicit½ûÖ¹×Ô¶¯×ª»»£¬·ñÔò»á×Ô¶¯½¨Á¢UpDownÓëdoubleµÄ¶ÔÓ¦¹ØÏµ£¬Ôì³É³åÍ»
-	explicit operator int() const { return Up / Down; }//ÖØÔØintÀàĞÍ×ª»»£¬explicit½ûÖ¹×Ô¶¯×ª»»
+	explicit operator double() const { return double(Up) / Down; }//é‡è½½doubleç±»å‹è½¬æ¢ï¼Œexplicitç¦æ­¢è‡ªåŠ¨è½¬æ¢ï¼Œå¦åˆ™ä¼šè‡ªåŠ¨å»ºç«‹UpDownä¸doubleçš„å¯¹åº”å…³ç³»ï¼Œé€ æˆå†²çª
+	explicit operator int() const { return Up / Down; }//é‡è½½intç±»å‹è½¬æ¢ï¼Œexplicitç¦æ­¢è‡ªåŠ¨è½¬æ¢
 	explicit operator bool() const { return 0 != Up; }
 
-	//·ÖÊı¶Ô·ÖÊıµÄ¼Ó¼õ³Ë³ıÔËËã
+	//åˆ†æ•°å¯¹åˆ†æ•°çš„åŠ å‡ä¹˜é™¤è¿ç®—
 	UpDown operator+(const UpDown &rightVal) const {
 		return(UpDown(this->Up*rightVal.Down + rightVal.Up*this->Down,
 			this->Down*rightVal.Down));
 	}
-	UpDown operator-() const { return(UpDown(-Up, Down)); }//¸ººÅ
+	UpDown operator-() const { return(UpDown(-Up, Down)); }//è´Ÿå·
 	UpDown operator-(const UpDown &rightVal) const {
 		return(UpDown(this->Up*rightVal.Down - rightVal.Up*this->Down,
 			this->Down*rightVal.Down));
@@ -188,31 +188,31 @@ public:
 		return UpDown(this->Up*rightVal.Down, this->Down*rightVal.Up);
 	}
 
-	//·ÖÊıµÄ×Ô¼Ó¡¢×Ô¼õÔËËã
-	UpDown &operator++() {//Ç°ÖÃ×Ô¼Ó
+	//åˆ†æ•°çš„è‡ªåŠ ã€è‡ªå‡è¿ç®—
+	UpDown &operator++() {//å‰ç½®è‡ªåŠ 
 		Up += Down;
 		Standardize();
 		return *this;
 	}
-	UpDown operator++(int) {//ºóÖÃ×Ô¼Ó
+	UpDown operator++(int) {//åç½®è‡ªåŠ 
 		UpDown temp = *this;
 		Up += Down;
 		Standardize();
 		return temp;
 	}
-	UpDown &operator--() {//Ç°ÖÃ×Ô¼õ
+	UpDown &operator--() {//å‰ç½®è‡ªå‡
 		Up -= Down;
 		Standardize();
 		return *this;
 	}
-	UpDown operator--(int) {//ºóÖÃ×Ô¼õ
+	UpDown operator--(int) {//åç½®è‡ªå‡
 		UpDown temp = *this;
 		Up -= Down;
 		Standardize();
 		return temp;
 	}
 
-	//·ÖÊı¼äµÄ+= -= *= /=
+	//åˆ†æ•°é—´çš„+= -= *= /=
 	UpDown &operator+=(const UpDown &rightVal) {
 		*this = *this + rightVal;
 		return *this;
@@ -230,7 +230,7 @@ public:
 		return *this;
 	}
 
-	//·ÖÊı¼äµÄ¹ØÏµÔËËã
+	//åˆ†æ•°é—´çš„å…³ç³»è¿ç®—
 	bool operator==(const UpDown &it) const { return (this->Up == it.Up) && (this->Down == it.Down); }
 	bool operator!=(const UpDown &it) const { return !(*this == it); }
 	bool operator<(const UpDown &it) const { return (*this - it).Up < 0; }
@@ -238,7 +238,7 @@ public:
 	bool operator<=(const UpDown &it) const { return (*this - it).Up <= 0; }
 	bool operator>=(const UpDown &it) const { return (*this - it).Up >= 0; }
 
-	//·ÖÊı¶ÔÆäËûÀàĞÍµÄÔËËã
+	//åˆ†æ•°å¯¹å…¶ä»–ç±»å‹çš„è¿ç®—
 	UpDown operator+(double rightVal) const { return *this + UpDown(rightVal); }
 	UpDown operator-(double rightVal) const { return *this - UpDown(rightVal); }
 	UpDown operator*(double rightVal) const { return *this * UpDown(rightVal); }
@@ -266,7 +266,7 @@ public:
 	bool operator<=(double rightVal) const { return double(*this) <= rightVal; }
 	bool operator>=(double rightVal) const { return double(*this) >= rightVal; }
 
-	//ÆäËûÀàĞÍ¶Ô·ÖÊıµÄÔËËã
+	//å…¶ä»–ç±»å‹å¯¹åˆ†æ•°çš„è¿ç®—
 	friend UpDown operator+(double leftVal, const UpDown &rightVal) { return UpDown(leftVal) + rightVal; }
 	friend UpDown operator-(double leftVal, const UpDown &rightVal) { return UpDown(leftVal) - rightVal; }
 	friend UpDown operator*(double leftVal, const UpDown &rightVal) { return UpDown(leftVal) * rightVal; }
@@ -296,16 +296,16 @@ public:
 };
 
 int main() {
-	system("color F2&title class UpDown (by ºúË³ê¿ 1400015962)");
+	system("color F2&title class UpDown (by èƒ¡é¡ºæ˜• 1400015962)");
 
-	cout << "1.¹¹Ôìº¯ÊıÊ¾Àı£º" << endl;
+	cout << "1.æ„é€ å‡½æ•°ç¤ºä¾‹ï¼š" << endl;
 	cout << "UpDown() = " << UpDown() << endl;
 	cout << "UpDown(-3.14) = " << UpDown(-3.14) << endl;
 	cout << "UpDown(2.0/3) = " << UpDown(2.0 / 3) << endl;
 	cout << "UpDown(2, -3) = " << UpDown(2, -3) << endl;
 	cout << "Division by zero: UpDown(2, 0)" << endl; UpDown(2, 0);
 
-	cout << endl << "2.ÔËËã·ûÊ¾Àı£º" << endl;
+	cout << endl << "2.è¿ç®—ç¬¦ç¤ºä¾‹ï¼š" << endl;
 	cout << "UpDown(3, -4) + UpDown(2, 3) = " << (UpDown(3, -4) + UpDown(2, 3)) << endl;
 	cout << "++UpDown(-3, 4) = " << ++UpDown(-3, 4) << endl;
 	cout << "UpDown(3, 5) - 3 = " << (UpDown(3, 5) - 3) << endl;
@@ -314,27 +314,27 @@ int main() {
 	cout << "UpDown(2, 3)[0] = " << UpDown(2, 3)[0] << endl;
 	cout << "UpDown(3, 4) > UpDown(2, 3) = " << (UpDown(3, 4) > UpDown(2, 3)) << endl;
 	UpDown myUD;
-	myUD = 2.5;//¸³Öµ
+	myUD = 2.5;//èµ‹å€¼
 	cout << myUD << '\t';
 	myUD -= 1.0 / 3;
 	myUD.Print();
 
-	cout << endl << endl << "3.ÀàĞÍ×ª»»Ê¾Àı£º" << endl;
+	cout << endl << endl << "3.ç±»å‹è½¬æ¢ç¤ºä¾‹ï¼š" << endl;
 	cout << "double(UpDown(3, 2)) = " << double(UpDown(3, 2)) << endl;
 	cout << "int(UpDown(3, 2)) = " << int(UpDown(3, 2)) << endl;
 	if (UpDown(2, 5) - 0.4) cout << 1; else cout << 0;
 
-	cout << endl << endl << "4.setter/getter/printº¯ÊıÊ¾Àı£ºUpDown(2, 3).setDown(-7).Print()" << endl;
+	cout << endl << endl << "4.setter/getter/printå‡½æ•°ç¤ºä¾‹ï¼šUpDown(2, 3).setDown(-7).Print()" << endl;
 	UpDown(2, 3).setDown(-7).Print();
 
-	cout << endl << endl << "5.sortº¯ÊıÊ¾Àı£º" << "UpDown arr[]{1.0/3, -2, 2.4, UpDown(4,3), 0}" << endl << "ÅÅĞòÇ°£º";
+	cout << endl << endl << "5.sortå‡½æ•°ç¤ºä¾‹ï¼š" << "UpDown arr[]{1.0/3, -2, 2.4, UpDown(4,3), 0}" << endl << "æ’åºå‰ï¼š";
 	UpDown arr[]{ 1.0 / 3, -2, 2.4, UpDown(4, 3), 0 };
 	unsigned int dataCount = sizeof(arr) / sizeof(arr[0]);
 	for (unsigned int iLoop = 0; iLoop < dataCount; ++iLoop) { cout << arr[iLoop] << '\t'; }
-	cout << endl << "ÉıĞò  £º";
+	cout << endl << "å‡åº  ï¼š";
 	sort(arr, dataCount);
 	for (unsigned int iLoop = 0; iLoop < dataCount; ++iLoop) { cout << arr[iLoop] << '\t'; }
-	cout << endl << "½µĞò  £º";
+	cout << endl << "é™åº  ï¼š";
 	sort(arr, dataCount, true);
 	for (unsigned int iLoop = 0; iLoop < dataCount; ++iLoop) { cout << arr[iLoop] << '\t'; }
 
