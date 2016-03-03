@@ -3,15 +3,15 @@
  * UpDown class & sort functions
  * by S.Hu
  *
- * 1.ÎŞ/µ¥/Ë«²Î¹¹Ôìº¯Êı£¨¼òµ¥µÄÑ­»·Ğ¡Êı±ä·ÖÊı£©¼°operator=
- * 2.×Ô¶¯Ô¼·Ö
- * 3.UpDown¼ä¼°ÓëÆäËûÊı¾İÀàĞÍ¼äµÄ³£ÓÃÔËËã£¨+ - * / == != > < >= <= ++ -- [] += -= *= /=£©
- * 4.UpDownÓëdouble/int/boolÖ®¼äµÄÀàĞÍ×ª»»
- * 5.Setor/Getor/Printerº¯Êı¡¢Á÷²åÈë£¨<<£©operaotor
- * 6.ÅÅĞòº¯Êı
- * IDE£ºMicrosoft Visual Studio 2015
+ * 1.æ— /å•/åŒå‚æ„é€ å‡½æ•°ï¼ˆç®€å•çš„å¾ªç¯å°æ•°å˜åˆ†æ•°ï¼‰åŠoperator=
+ * 2.è‡ªåŠ¨çº¦åˆ†
+ * 3.UpDowné—´åŠä¸å…¶ä»–æ•°æ®ç±»å‹é—´çš„å¸¸ç”¨è¿ç®—ï¼ˆ+ - * / == != > < >= <= ++ -- [] += -= *= /=ï¼‰
+ * 4.UpDownä¸double/int/boolä¹‹é—´çš„ç±»å‹è½¬æ¢
+ * 5.Setor/Getor/Printerå‡½æ•°ã€æµæ’å…¥ï¼ˆ<<ï¼‰operaotor
+ * 6.æ’åºå‡½æ•°
+ * IDEï¼šMicrosoft Visual Studio 2015
  */
-#pragma warning(disable:4290)//ºöÂÔC++Òì³£¹æ·¶£¬µ«Ö¸Ê¾º¯Êı²»ÊÇ__declspec(nothrow)
+#pragma warning(disable:4290)//å¿½ç•¥C++å¼‚å¸¸è§„èŒƒï¼Œä½†æŒ‡ç¤ºå‡½æ•°ä¸æ˜¯__declspec(nothrow)
 #include <iostream>
 #include <stdexcept>
 using namespace std;
@@ -41,54 +41,54 @@ void sort(Iterator begin, Iterator end) {
 		}
 }
 
-//·ÖÊıÀà
+//åˆ†æ•°ç±»
 class UpDown {
 private:
 	int Up, Down;
 
-	//È¡×î´ó¹«Ô¼Êı
+	//å–æœ€å¤§å…¬çº¦æ•°
 	int GCD(int a, int b) {
 		if (a >= b) return a % b == 0 ? b : GCD(b, a % b);
 		else return b % a == 0 ? a : GCD(a, b % a);
 	}
-	//±ê×¼»¯£¬»¯Îª·ûºÅÔÚ·Ö×ÓµÄ¼ÈÔ¼¼Ù·ÖÊı
-	//ÔÚ¹¹Ôìº¯Êı¡¢¸³Öµº¯Êı¡¢×Ô¼Ó×Ô¼õº¯ÊıÖĞÖ´ĞĞ£¬È·±£ËùÓĞ¶ÔÏó¶¼ÊÇ±ê×¼»¯µÄ
+	//æ ‡å‡†åŒ–ï¼ŒåŒ–ä¸ºç¬¦å·åœ¨åˆ†å­çš„æ—¢çº¦å‡åˆ†æ•°
+	//åœ¨æ„é€ å‡½æ•°ã€èµ‹å€¼å‡½æ•°ã€è‡ªåŠ è‡ªå‡å‡½æ•°ä¸­æ‰§è¡Œï¼Œç¡®ä¿æ‰€æœ‰å¯¹è±¡éƒ½æ˜¯æ ‡å‡†åŒ–çš„
 	void Standardize() {
 		if (0 == Up) {
-			Down = 1;    //´¦Àí0
+			Down = 1;    //å¤„ç†0
 			return;
 		}
 
-		//´¦Àí·ûºÅ£¬Ê¹¸ººÅÔÚ·Ö×Ó
+		//å¤„ç†ç¬¦å·ï¼Œä½¿è´Ÿå·åœ¨åˆ†å­
 		if ((Up > 0 && Down < 0) || (Up < 0 && Down > 0))
 			Up = Up < 0 ? Up : -Up;
 		else
 			Up = Up > 0 ? Up : -Up;
 
 		Down = Down > 0 ? Down : -Down;
-		//Ô¼·Ö
+		//çº¦åˆ†
 		int gcd = GCD(Up > 0 ? Up : -Up, Down);
 		Up = Up / gcd;
 		Down = Down / gcd;
 	}
 public:
 	/* constructors & assignment operator */
-	//ÎŞ/µ¥²Î¹¹Ôìº¯Êı
-	//Ñ­»·Ğ¡Êı±ä·ÖÊı£¨Ğ¡Êıµãºó16Î»Ñ­»·ÔòÈÏÎªÊÇÑ­»·Ğ¡Êı£©
+	//æ— /å•å‚æ„é€ å‡½æ•°
+	//å¾ªç¯å°æ•°å˜åˆ†æ•°ï¼ˆå°æ•°ç‚¹å16ä½å¾ªç¯åˆ™è®¤ä¸ºæ˜¯å¾ªç¯å°æ•°ï¼‰
 	UpDown(double u = 0.0) {
-		//È¡ÎªÊı×é
+		//å–ä¸ºæ•°ç»„
 		bool negative = u < 0 ? 1 : 0;
 		double uAbs = u < 0 ? -u : u;
-		int nums[17];//nums[0]ÎªÕûÊı²¿·Ö,nums[1~16]ÎªĞ¡Êıµãºó16Î»
+		int nums[17];//nums[0]ä¸ºæ•´æ•°éƒ¨åˆ†,nums[1~16]ä¸ºå°æ•°ç‚¹å16ä½
 
 		for (int i = 0; i <= 16; i++) {
 			nums[i] = int(uAbs);
 			uAbs = (uAbs - int(uAbs)) * 10;
 		}
 
-		//Ñ°ÕÒÑ­»·½Ú
-		bool isCirculator = 0;//ÕÒµ½Ñ­»·½ÚÔòÖÃ1
-		int length, startLocation;//Ñ­»·½Ú³¤¶È¡¢¿ªÊ¼Ñ­»·µÄÎ»ÖÃ
+		//å¯»æ‰¾å¾ªç¯èŠ‚
+		bool isCirculator = 0;//æ‰¾åˆ°å¾ªç¯èŠ‚åˆ™ç½®1
+		int length, startLocation;//å¾ªç¯èŠ‚é•¿åº¦ã€å¼€å§‹å¾ªç¯çš„ä½ç½®
 
 		for (length = 1; length <= 8; length++) {
 			for (startLocation = 1; startLocation <= 18 - 2 * length; startLocation++) {
@@ -109,26 +109,26 @@ public:
 				break;
 		}
 
-		//¸³Öµ
-		if (isCirculator) { //ÕÒµ½Ñ­»·½Ú
+		//èµ‹å€¼
+		if (isCirculator) { //æ‰¾åˆ°å¾ªç¯èŠ‚
 			Up = 0;
 			Down = 0;
 
-			//Ñ­»·½Ú²¿·Ö
+			//å¾ªç¯èŠ‚éƒ¨åˆ†
 			for (int iLoop = 0; iLoop <= length - 1; iLoop++) {
 				Up = Up * 10 + nums[startLocation + iLoop];
 				Down = Down * 10 + 9;
 			}
 
-			//·ÇÑ­»·½Ú²¿·Ö
+			//éå¾ªç¯èŠ‚éƒ¨åˆ†
 			for (int iLoop = 1; iLoop < startLocation; iLoop++) {
 				Up += int(double(nums[startLocation - iLoop]) * Down);
 				Down *= 10;
 			}
 
-			Up += nums[0] * Down;//ÕûÊı²¿·Ö
-			Up *= negative ? -1 : 1;//·ûºÅ
-		} else { //Î´ÕÒµ½Ñ­»·½Ú
+			Up += nums[0] * Down;//æ•´æ•°éƒ¨åˆ†
+			Up *= negative ? -1 : 1;//ç¬¦å·
+		} else { //æœªæ‰¾åˆ°å¾ªç¯èŠ‚
 			for (Down = 1; u != double(int(u)) && u < 1e8 && Down < 1e8; Down *= 10)
 				u *= 10;
 
@@ -138,9 +138,9 @@ public:
 		Standardize();
 	}
 
-	//Ë«²Î¹¹Ôìº¯Êı
+	//åŒå‚æ„é€ å‡½æ•°
 	UpDown(int u, int d)throw(logic_error) {
-		if (d == 0) throw logic_error("Divide By Zero");
+		if (d == 0) throw logic_error("Divide by Zero");
 		else {
 			Up = u;
 			Down = d;
@@ -154,7 +154,7 @@ public:
 		return *this;
 	}
 
-	//Á÷²åÈëÔËËã·û
+	//æµæ’å…¥è¿ç®—ç¬¦
 	friend ostream &operator<<(ostream &os, UpDown &it) {
 		os << it.Up << '/' << it.Down;
 		return os;
@@ -167,7 +167,7 @@ public:
 		return *this;
 	}
 	UpDown &setDown(int d)throw(logic_error) {
-		if (d == 0) throw logic_error("Divide By Zero");
+		if (d == 0) throw logic_error("Divide by Zero");
 		else {
 			Down = d;
 			Standardize();
@@ -194,7 +194,7 @@ public:
 		return *this;
 	}
 
-	//[Å¼Êı]È¡·Ö×Ó£¬[ÆæÊı]È¡·ÖÄ¸
+	//[å¶æ•°]å–åˆ†å­ï¼Œ[å¥‡æ•°]å–åˆ†æ¯
 	int operator[](int index) const {
 		if (0 == index % 2)
 			return Up;
@@ -233,23 +233,23 @@ public:
 	}
 
 	//++ --
-	UpDown &operator++() {//Ç°ÖÃ×Ô¼Ó
+	UpDown &operator++() {//å‰ç½®è‡ªåŠ 
 		Up += Down;
 		Standardize();
 		return *this;
 	}
-	UpDown operator++(int) {//ºóÖÃ×Ô¼Ó
+	UpDown operator++(int) {//åç½®è‡ªåŠ 
 		UpDown temp = *this;
 		Up += Down;
 		Standardize();
 		return temp;
 	}
-	UpDown &operator--() {//Ç°ÖÃ×Ô¼õ
+	UpDown &operator--() {//å‰ç½®è‡ªå‡
 		Up -= Down;
 		Standardize();
 		return *this;
 	}
-	UpDown operator--(int) {//ºóÖÃ×Ô¼õ
+	UpDown operator--(int) {//åç½®è‡ªå‡
 		UpDown temp = *this;
 		Up -= Down;
 		Standardize();
@@ -393,24 +393,24 @@ public:
 
 int main() {
 	system("color F2&title class UpDown (by S.Hu)");
-	cout << "1.¹¹Ôìº¯ÊıÊ¾Àı£º" << endl;
+	cout << "1.æ„é€ å‡½æ•°ç¤ºä¾‹ï¼š" << endl;
 	cout << "UpDown() = " << UpDown() << endl;
 	cout << "UpDown(-3.14) = " << UpDown(-3.14) << endl;
 	cout << "UpDown(2.0/3) = " << UpDown(2.0 / 3) << endl;
 	cout << "UpDown(2, -3) = " << UpDown(2, -3) << endl;
-	cout << "²âÊÔÒì³£: UpDown(2, 0)" << endl;
+	cout << "æµ‹è¯•å¼‚å¸¸: UpDown(2, 0)" << endl;
 	try {
 		UpDown(2, 0);
 	} catch (logic_error e) {
 		cerr << e.what() << endl;
 	}
 
-	cout << endl << "2.ÔËËã·ûÊ¾Àı£º" << endl;
+	cout << endl << "2.è¿ç®—ç¬¦ç¤ºä¾‹ï¼š" << endl;
 	cout << "UpDown(3, -4) + UpDown(2, 3) = " << (UpDown(3, -4) + UpDown(2, 3)) << endl;
 	cout << "++UpDown(-3, 4) = " << ++UpDown(-3, 4) << endl;
 	cout << "UpDown(3, 5) - 3 = " << (UpDown(3, 5) - 3) << endl;
 	cout << "2.4 * -UpDown(3, 5) = " << (2.4 * -UpDown(3, 5)) << endl;
-	cout << "²âÊÔÒì³£: UpDown(3, 5) / UpDown(0, 1)" << endl;
+	cout << "æµ‹è¯•å¼‚å¸¸: UpDown(3, 5) / UpDown(0, 1)" << endl;
 	try {
 		UpDown(3, 5) / UpDown(0, 1);
 	} catch (logic_error e) {
@@ -419,32 +419,32 @@ int main() {
 	cout << "UpDown(2, 3)[0] = " << UpDown(2, 3)[0] << endl;
 	cout << "UpDown(3, 4) > UpDown(2, 3) = " << (UpDown(3, 4) > UpDown(2, 3)) << endl;
 	UpDown myUD;
-	myUD = 2.5;//¸³Öµ
+	myUD = 2.5;//èµ‹å€¼
 	cout << myUD << '\t';
 	myUD -= 1.0 / 3;
 	myUD.Print();
 
-	cout << endl << endl << "3.ÀàĞÍ×ª»»Ê¾Àı£º" << endl;
+	cout << endl << endl << "3.ç±»å‹è½¬æ¢ç¤ºä¾‹ï¼š" << endl;
 	cout << "double(UpDown(3, 2)) = " << double(UpDown(3, 2)) << endl;
 	cout << "int(UpDown(3, 2)) = " << int(UpDown(3, 2)) << endl;
 	if (UpDown(2, 5)) cout << 1;
 	else cout << 0;
 
-	cout << endl << endl << "4.setor/getor/printerÊ¾Àı£ºUpDown(2, 3).setDown(-7).Print()" << endl;
+	cout << endl << endl << "4.setor/getor/printerç¤ºä¾‹ï¼šUpDown(2, 3).setDown(-7).Print()" << endl;
 	UpDown(2, 3).setDown(-7).Print();
 
-	cout << endl << endl << "5.sortº¯ÊıÊ¾Àı£º" << "UpDown arr[]{1.0/3, -2, 2.4, UpDown(4,3), 0}" << endl << "ÅÅĞòÇ°£º";
+	cout << endl << endl << "5.sortå‡½æ•°ç¤ºä¾‹ï¼š" << "UpDown arr[]{1.0/3, -2, 2.4, UpDown(4,3), 0}" << endl << "æ’åºå‰ï¼š";
 	UpDown arr[] { 1.0 / 3, -2, 2.4, UpDown(4, 3), 0 };
 	unsigned int dataCount = sizeof(arr) / sizeof(arr[0]);
 	for (unsigned int iLoop = 0; iLoop < dataCount; ++iLoop)
 		cout << arr[iLoop] << '\t';
 
-	cout << endl << "ÉıĞò  £º";
+	cout << endl << "å‡åº  ï¼š";
 	sort(arr, arr + dataCount);
 	for (unsigned int iLoop = 0; iLoop < dataCount; ++iLoop)
 		cout << arr[iLoop] << '\t';
 
-	cout << endl << "½µĞò  £º";
+	cout << endl << "é™åº  ï¼š";
 	sort(arr, arr + dataCount, [](UpDown x, UpDown y) ->bool {return x > y;});
 	for (unsigned int iLoop = 0; iLoop < dataCount; ++iLoop)
 		cout << arr[iLoop] << '\t';
