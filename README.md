@@ -1,2 +1,4 @@
 # UpDown
-UpDown class & sort functions
+A class that packages `fraction`
+# sort functions
+`STL` styled
