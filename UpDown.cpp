@@ -7,7 +7,7 @@
  * 2.自动约分
  * 3.UpDown间及与其他数据类型间的常用运算（+ - * / == != > < >= <= ++ -- [] += -= *= /=）
  * 4.UpDown与double/int/bool之间的类型转换
- * 5.Setor/Getor/Printer函数、流插入（<<）operaotor
+ * 5.setter/getter/print函数、流插入（<<）operaotor
  * 6.排序函数
  * IDE：Microsoft Visual Studio 2015
  */
@@ -160,7 +160,7 @@ public:
 		return os;
 	}
 
-	//setor, getor, printer
+	//setter, getter, print
 	UpDown &setUp(int u) {
 		Up = u;
 		Standardize();
